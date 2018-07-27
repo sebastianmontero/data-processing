@@ -49,6 +49,11 @@ class EconomicActivityIndex(Base, BaseTable):
     __tablename__ = 'month_economic_activity_index'
     month_id = Column(Integer(), primary_key=True)
     economic_activity_index = Column(Numeric(8,5), nullable=False)
+    
+class MonthNationwideEconomicActivityIndex(Base, BaseTable):
+    __tablename__ = 'month_nationwide_economic_activity_index'
+    month_id = Column(Integer(), primary_key=True)
+    economic_activity_index = Column(Numeric(8,5), nullable=False)
 
 class MonthInflationIndex(Base, BaseTable):
     __tablename__ = 'month_inflation_index'
@@ -85,6 +90,7 @@ class MonthInputFeatures(Base, BaseTable):
     inflation_index = Column(Numeric(8,5), nullable=False)
     manufacturing_confidence_index = Column(Numeric(8,5), nullable=False)
     economic_activity_index = Column(Numeric(8,5), nullable=False)
+    nationwide_economic_activity_index = Column(Numeric(8,5), nullable=False)
     inflation_index_roc_prev_month = Column(Numeric(8,7), nullable=False)
     inflation_index_roc_start_year = Column(Numeric(8,7), nullable=False)
     energy_price_index_roc_prev_month = Column(Numeric(8,7), nullable=False)

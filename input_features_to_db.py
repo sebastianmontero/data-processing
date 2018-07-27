@@ -19,14 +19,16 @@ def load_input_features(engine):
                     mii.inflation_index_roc_start_year,
                     mir.interest_rate,
                     mmci.manufacturing_confidence_index,
-                    meai.economic_activity_index
+                    meai.economic_activity_index,
+                    mneai.economic_activity_index nationwide_economic_activity_index
             from month_consumer_confidence_index mcci INNER JOIN
                  month_energy_price_index mepi ON mcci.month_id = mepi.month_id INNER JOIN
                  month_exchange_rate mer ON mcci.month_id = mer.month_id INNER JOIN
                  month_inflation_index mii ON mcci.month_id = mii.month_id INNER JOIN
                  month_interest_rate mir ON mcci.month_id = mir.month_id INNER JOIN
                  month_manufacturing_confidence_index mmci ON mcci.month_id = mmci.month_id INNER JOIN
-                 month_economic_activity_index meai ON mcci.month_id = meai.month_id"""
+                 month_economic_activity_index meai ON mcci.month_id = meai.month_id INNER JOIN 
+                 month_nationwide_economic_activity_index mneai ON mcci.month_id = mneai.month_id"""
     return pd.read_sql(sql, con=engine)
 
 config = configparser.ConfigParser()
